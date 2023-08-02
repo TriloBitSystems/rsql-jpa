@@ -1,10 +1,10 @@
 package com.github.tennaito.rsql.misc;
 
-import java.util.function.Supplier;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.metamodel.Metamodel;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.metamodel.Metamodel;
+import java.util.function.Supplier;
 
 public final class EntityManagerAdapter {
 

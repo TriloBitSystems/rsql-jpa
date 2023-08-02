@@ -4,6 +4,8 @@
 [![Coverage Status](https://coveralls.io/repos/tennaito/rsql-jpa/badge.svg)](https://coveralls.io/r/tennaito/rsql-jpa)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.tennaito/rsql-jpa/badge.svg?style=flat)](http://mvnrepository.com/artifact/com.github.tennaito/rsql-jpa)
 
+__This project is forked from https://github.com/tennaito/rsql-jpa as it has not been updated for quite a while. All credits belongs to [tennaito](https://github.com/tennaito). Provided as-is without any guarantees. All packages from javax.persistence has been updated to newer version of jakarta.persistence.__
+
 RESTful Service Query Language (RSQL) is a language and a library designed for searching entries in RESTful services.
 
 This library provides converter of [RSQL expression](https://github.com/jirutka/rsql-parser) to JPA [Criteria Query](http://docs.oracle.com/javaee/6/tutorial/doc/gjitv.html) (object representation of JPQL), which is translated to SQL query. RSQL was originally created for [KOSapi](https://kosapi.feld.cvut.cz) - RESTful web services for IS at the Czech Technical University in Prague. 
@@ -203,9 +205,9 @@ Now some real examples of RSQL queries.
 
 ```xml
 <dependency>
-    <groupId>com.github.tennaito</groupId>
+    <groupId>sk.trilobit</groupId>
     <artifactId>rsql-jpa</artifactId>
-    <version>2.0.2</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
@@ -214,6 +216,8 @@ Now some real examples of RSQL queries.
 This project is licensed under [MIT license](http://opensource.org/licenses/MIT).
 
 ## Change log
+
+- (1.0.0) Transferred to TriloBitSystems and updated to use jakarta.persistence packages
 
 - (2.0.2) Minor changes;
 - (2.0.1) Added Embeddable property Path;

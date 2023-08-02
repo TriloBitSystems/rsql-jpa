@@ -24,12 +24,12 @@
  */
 package com.github.tennaito.rsql.jpa.entity;
 
-import java.util.Set;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
+import java.util.Set;
 
 /**
  *
@@ -42,7 +42,7 @@ public class Person extends AbstractTestEntity {
     @Column
     private String surname;
 
-    @ManyToMany(cascade=CascadeType.PERSIST)
+    @ManyToMany(cascade= CascadeType.PERSIST)
     private Set<Title> titles;
     
     public String getSurname() {

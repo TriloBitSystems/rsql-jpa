@@ -27,9 +27,9 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.EntityManager;
 
 import com.github.tennaito.rsql.jpa.entity.Teacher;
+import jakarta.persistence.EntityManager;
 import org.junit.BeforeClass;
 
 import com.github.tennaito.rsql.jpa.entity.Course;

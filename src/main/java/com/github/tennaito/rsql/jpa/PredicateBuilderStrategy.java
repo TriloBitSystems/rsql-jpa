@@ -23,14 +23,11 @@
  */
 package com.github.tennaito.rsql.jpa;
 
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.From;
-import javax.persistence.criteria.Predicate;
-
 import com.github.tennaito.rsql.builder.BuilderTools;
-
 import com.github.tennaito.rsql.misc.EntityManagerAdapter;
 import cz.jirutka.rsql.parser.ast.Node;
+import jakarta.persistence.criteria.From;
+import jakarta.persistence.criteria.Predicate;
 
 /**
  * PredicateBuilderStrategy

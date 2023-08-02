@@ -31,18 +31,17 @@ import cz.jirutka.rsql.parser.ast.ComparisonNode;
 import cz.jirutka.rsql.parser.ast.ComparisonOperator;
 import cz.jirutka.rsql.parser.ast.LogicalNode;
 import cz.jirutka.rsql.parser.ast.Node;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.Expression;
+import jakarta.persistence.criteria.From;
+import jakarta.persistence.criteria.Join;
+import jakarta.persistence.criteria.Path;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.metamodel.Attribute;
+import jakarta.persistence.metamodel.ManagedType;
+import jakarta.persistence.metamodel.Metamodel;
+import jakarta.persistence.metamodel.PluralAttribute;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.Expression;
-import javax.persistence.criteria.From;
-import javax.persistence.criteria.Join;
-import javax.persistence.criteria.Path;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.metamodel.Attribute;
-import javax.persistence.metamodel.Attribute.PersistentAttributeType;
-import javax.persistence.metamodel.ManagedType;
-import javax.persistence.metamodel.Metamodel;
-import javax.persistence.metamodel.PluralAttribute;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -190,7 +189,7 @@ public final class PredicateBuilder {
      * @return               The Path for the property path
      * @throws               IllegalArgumentException if attribute of the given property name does not exist
      */
-    public static <T> Path<?> findPropertyPath(String propertyPath, Path startRoot, EntityManagerAdapter entityManager,  BuilderTools misc) {
+    public static <T> Path<?> findPropertyPath(String propertyPath, Path startRoot, EntityManagerAdapter entityManager, BuilderTools misc) {
         String[] graph = propertyPath.split("\\.");
 
         Metamodel metaModel = entityManager.getMetamodel();
@@ -577,7 +576,7 @@ public final class PredicateBuilder {
      * @return               <tt>true</tt> if the property is an embedded attribute, <tt>false</tt> otherwise.
      */
     private static <T> boolean isEmbeddedType(String property, ManagedType<T> classMetadata){
-        return classMetadata.getAttribute(property).getPersistentAttributeType() == PersistentAttributeType.EMBEDDED;
+        return classMetadata.getAttribute(property).getPersistentAttributeType() == Attribute.PersistentAttributeType.EMBEDDED;
     }
 
     /**

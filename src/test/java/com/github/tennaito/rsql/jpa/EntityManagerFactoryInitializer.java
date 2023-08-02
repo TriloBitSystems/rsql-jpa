@@ -23,8 +23,9 @@
  */
 package com.github.tennaito.rsql.jpa;
 
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 /**
  * @author Antonio Rabelo

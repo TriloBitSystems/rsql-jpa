@@ -23,18 +23,16 @@
  */
 package com.github.tennaito.rsql.jpa;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import javax.persistence.EntityManager;
-import javax.persistence.criteria.From;
-import javax.persistence.criteria.Predicate;
-
 import com.github.tennaito.rsql.misc.EntityManagerAdapter;
 import cz.jirutka.rsql.parser.ast.AndNode;
 import cz.jirutka.rsql.parser.ast.ComparisonNode;
 import cz.jirutka.rsql.parser.ast.OrNode;
 import cz.jirutka.rsql.parser.ast.RSQLVisitor;
+import jakarta.persistence.criteria.From;
+import jakarta.persistence.criteria.Predicate;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * JpaPredicateVisitor

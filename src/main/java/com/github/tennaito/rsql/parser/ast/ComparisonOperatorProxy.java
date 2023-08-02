@@ -51,7 +51,7 @@ public enum ComparisonOperatorProxy {
 	private ComparisonOperator operator;
 	
 	private final static Map<ComparisonOperator, ComparisonOperatorProxy> CACHE = 
-			Collections.synchronizedMap(new HashMap<ComparisonOperator, ComparisonOperatorProxy>());
+			Collections.synchronizedMap(new HashMap<>());
 	
 	static {
 		for (ComparisonOperatorProxy proxy : values()) {

@@ -12,9 +12,9 @@
 		<class>com.github.tennaito.rsql.jpa.entity.Title</class>
 		<class>com.github.tennaito.rsql.jpa.entity.Teacher</class>
 		<properties>
-			<property name="javax.persistence.jdbc.driver"   		 value="org.hsqldb.jdbcDriver" />
-			<property name="javax.persistence.jdbc.url"       		 value="jdbc:hsqldb:mem:ProductDAOTest" />
-			<property name="javax.persistence.jdbc.user"     		 value="sa" />
+			<property name="jakarta.persistence.jdbc.driver"   		 value="org.hsqldb.jdbcDriver" />
+			<property name="jakarta.persistence.jdbc.url"       	 value="jdbc:hsqldb:mem:ProductDAOTest" />
+			<property name="jakarta.persistence.jdbc.user"     		 value="sa" />
 			<property name="eclipselink.logging.level"       		 value="FINE" />
 			<property name="eclipselink.target-database" 	 		 value="HSQL" />
 			<property name="eclipselink.validate-existence"  		 value="true" />

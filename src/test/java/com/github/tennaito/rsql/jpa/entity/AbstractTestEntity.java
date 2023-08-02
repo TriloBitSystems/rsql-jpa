@@ -23,11 +23,12 @@
  */
 package com.github.tennaito.rsql.jpa.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
 
 /**
  *
