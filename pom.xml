@@ -2,7 +2,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.tennaito</groupId>
+    <groupId>io.github.trilobitsystems</groupId>
     <artifactId>rsql-jpa</artifactId>
     <version>2.0.3-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -23,7 +23,7 @@
         </plugins>
     </build>
     <description>A application used to translate  RSQL nodes to JPA Criteria Query.</description>
-    <url>http://github.com/tennaito/rsql-jpa</url>
+    <url>http://github.com/TriloBitSystems/rsql-jpa</url>
 
     <!--//////////////////// LICENSE ////////////////////-->
     <licenses>
@@ -42,9 +42,9 @@
     
 	<!--//////////////////// SCM    ////////////////////-->
     <scm>
-        <url>https://github.com/tennaito/rsql-jpa/</url>
-        <connection>scm:git:https://github.com/tennaito/rsql-jpa.git</connection>
-        <developerConnection>scm:git:https://github.com/tennaito/rsql-jpa.git</developerConnection>
+        <url>https://github.com/TriloBitSystems/rsql-jpa/</url>
+        <connection>scm:git:https://github.com/TriloBitSystems/rsql-jpa.git</connection>
+        <developerConnection>scm:git:https://github.com/TriloBitSystems/rsql-jpa.git</developerConnection>
     	<tag>HEAD</tag>
   </scm>
 
@@ -72,12 +72,12 @@
 		</dependency>
 
         <!-- Test scope -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.11.Final</version>
-			<scope>test</scope>
-		</dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.6.15.Final</version>
+            <scope>test</scope>
+        </dependency>
 
 		<dependency>
 			<groupId>org.eclipse.persistence</groupId>
@@ -132,7 +132,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-source-plugin</artifactId>
-						<version>2.2.1</version>
+						<version>3.2.1</version>
 						<executions>
 							<execution>
 								<id>attach-sources</id>
@@ -145,7 +145,7 @@
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
-						<version>2.9.1</version>
+						<version>3.4.1</version>
 						<executions>
 							<execution>
 								<id>attach-javadocs</id>
@@ -218,62 +218,7 @@
                     </plugin>
                 </plugins>
             </build>
-        </profile>        
-        <!--
-            Profile for Travis CI to use Coveralls.
-        -->
-        <profile>
-            <id>travis-ci</id>
-
-            <!-- Will be automatically activated on Travis CI. -->
-            <activation>
-                <property>
-                    <name>env.TRAVIS</name>
-                </property>
-            </activation>
-
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.7.1.201405082137</version>
-                        <executions>
-                            <!-- Merge execution data for unit and integration tests. -->
-                            <execution>
-                                <id>merge-exec-data</id>
-                                <phase>post-integration-test</phase>
-                                <goals>
-                                    <goal>merge</goal>
-                                </goals>
-                                <configuration>
-                                    <fileSets>
-                                        <fileSet>
-                                            <directory>${project.build.directory}</directory>
-                                            <includes>
-                                                <include>*.exec</include>
-                                            </includes>
-                                        </fileSet>
-                                    </fileSets>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <!--
-                        Plugin for submitting code coverage reports to Coveralls.
-                        To get it work on Travis, add these lines into your .travis.yml:
-                            script: 'mvn verify -B'
-                            after_success: 'mvn jacoco:report coveralls:jacoco'
-                    -->
-                    <plugin>
-                        <groupId>org.eluder.coveralls</groupId>
-                        <artifactId>coveralls-maven-plugin</artifactId>
-						<version>2.2.0</version>                        
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>        
+        </profile>
     </profiles>
     
     <!--//////////////////// DISTRIBUTION ////////////////////-->
@@ -286,13 +231,9 @@
 			<id>ossrh</id>
 			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
 		</repository>
-	</distributionManagement>	
-	<ciManagement>
-		<system>travis</system>
-		<url>https://travis-ci.org/tennaito/rsql-jpa</url>
-	</ciManagement>
+	</distributionManagement>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/tennaito/rsql-jpa/issues</url>
+		<url>https://github.com/TriloBitSystems/rsql-jpa/issues</url>
 	</issueManagement>	
 </project>
