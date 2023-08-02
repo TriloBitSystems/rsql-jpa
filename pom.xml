@@ -3,9 +3,9 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>sk.trilobit</groupId>
+    <groupId>io.github.trilobitsystems</groupId>
     <artifactId>rsql-jpa</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <!--//////////////////// ABOUT ////////////////////-->
@@ -53,6 +53,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
+        <rsql-parser.version>2.1.0</rsql-parser.version>
+        <jakarta.persistence-api.version>3.1.0</jakarta.persistence-api.version>
+        <hibernate-entitymanager.version>5.6.15.Final</hibernate-entitymanager.version>
+        <eclipselink.version>4.0.2</eclipselink.version>
+        <junit.version>4.13.2</junit.version>
+        <hsqldb.version>2.7.2</hsqldb.version>
+        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
+        <pomchecker-maven-plugin.version>1.9.0</pomchecker-maven-plugin.version>
+        <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
+        <maven-deploy-plugin.version>3.1.1</maven-deploy-plugin.version>
     </properties>
 
     <!--//////////////////// DEPENDENCIES ////////////////////-->
@@ -62,40 +73,40 @@
         <dependency>
             <groupId>cz.jirutka.rsql</groupId>
             <artifactId>rsql-parser</artifactId>
-            <version>2.1.0</version>
+            <version>${rsql-parser.version}</version>
         </dependency>
 
         <dependency>
             <groupId>jakarta.persistence</groupId>
             <artifactId>jakarta.persistence-api</artifactId>
-            <version>3.1.0</version>
+            <version>${jakarta.persistence-api.version}</version>
         </dependency>
 
         <!-- Test scope -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.6.15.Final</version>
+            <version>${hibernate-entitymanager.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
-            <version>4.0.2</version>
+            <version>${eclipselink.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.13.2</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.7.2</version>
+            <version>${hsqldb.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -109,46 +120,27 @@
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-release-plugin</artifactId>
-                        <version>3.0.1</version>
-                        <configuration>
-                            <autoVersionSubmodules>true</autoVersionSubmodules>
-                            <useReleaseProfile>false</useReleaseProfile>
-                            <releaseProfiles>release</releaseProfiles>
-                            <goals>deploy nexus-staging:release</goals>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
-                        <version>1.6.13</version>
-                        <extensions>true</extensions>
-                        <configuration>
-                            <serverId>ossrh</serverId>
-                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                            <autoReleaseAfterClose>false</autoReleaseAfterClose>
-                        </configuration>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>3.3.0</version>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>${maven-javadoc-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>attach-sources</id>
+                                <id>attach-javadoc</id>
                                 <goals>
-                                    <goal>jar-no-fork</goal>
+                                    <goal>jar</goal>
                                 </goals>
+                                <configuration>
+                                    <doclint>none</doclint>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.5.0</version>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>${maven-source-plugin.version}</version>
                         <executions>
                             <execution>
-                                <id>attach-javadocs</id>
+                                <id>attach-source</id>
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
@@ -156,9 +148,28 @@
                         </executions>
                     </plugin>
                     <plugin>
+                        <groupId>org.kordamp.maven</groupId>
+                        <artifactId>pomchecker-maven-plugin</artifactId>
+                        <version>${pomchecker-maven-plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <id>check-release</id>
+                                <goals>
+                                    <goal>check-maven-central</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
+                        <version>${maven-gpg-plugin.version}</version>
+                        <configuration>
+                            <gpgArguments>
+                                <arg>--pinentry-mode</arg>
+                                <arg>loopback</arg>
+                            </gpgArguments>
+                        </configuration>
                         <executions>
                             <execution>
                                 <id>sign-artifacts</id>
@@ -169,52 +180,10 @@
                             </execution>
                         </executions>
                     </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <!--
-            General profile for CI to analyze code coverage.
-        -->
-        <profile>
-            <id>ci</id>
-
-            <!-- Will be automatically activated on Travis CI and possibly other CI environments. -->
-            <activation>
-                <property>
-                    <name>env.CI</name>
-                </property>
-            </activation>
-
-            <properties>
-                <!-- Properties specific for Sonar -->
-                <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-                <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-                <sonar.jacoco.itReportPath>${project.build.directory}/jacoco-it.exec</sonar.jacoco.itReportPath>
-            </properties>
-
-            <build>
-                <plugins>
-                    <!--
-                        Analyze code coverage with JaCoCo.
-                    -->
                     <plugin>
-                        <groupId>org.jacoco</groupId>
-                        <artifactId>jacoco-maven-plugin</artifactId>
-                        <version>0.8.10</version>
-                        <executions>
-                            <execution>
-                                <id>prepare-agent</id>
-                                <goals>
-                                    <goal>prepare-agent</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>prepare-agent-integration</id>
-                                <goals>
-                                    <goal>prepare-agent-integration</goal>
-                                </goals>
-                            </execution>
-                        </executions>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-deploy-plugin</artifactId>
+                        <version>${maven-deploy-plugin.version}</version>
                     </plugin>
                 </plugins>
             </build>
@@ -223,13 +192,10 @@
 
     <!--//////////////////// DISTRIBUTION ////////////////////-->
     <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
         <repository>
             <id>ossrh</id>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+            <name>Central Repository OSSRH</name>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
     <ciManagement>
