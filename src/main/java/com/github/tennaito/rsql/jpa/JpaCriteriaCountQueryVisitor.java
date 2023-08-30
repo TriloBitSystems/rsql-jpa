@@ -23,8 +23,6 @@
  */
 package com.github.tennaito.rsql.jpa;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import com.github.tennaito.rsql.misc.EntityManagerAdapter;
 import cz.jirutka.rsql.parser.ast.AndNode;
 import cz.jirutka.rsql.parser.ast.ComparisonNode;
@@ -33,6 +31,9 @@ import cz.jirutka.rsql.parser.ast.RSQLVisitor;
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * JpaCriteriaQueryVisitor
@@ -97,7 +98,6 @@ public class JpaCriteriaCountQueryVisitor<T> extends AbstractJpaVisitor<Criteria
         CriteriaQuery<Long> cq = cb.createQuery(Long.class);
         root = cq.from(entityClass);
         cq.select(cb.countDistinct(root));
-        root = cq.from(entityClass);
         cq.where(this.getPredicateVisitor().defineRoot(root).visit(node, entityManager));
         return cq;
     }
