@@ -111,4 +111,4 @@ jobs:
           MAVEN_USERNAME: ${{ secrets.OSS_USERNAME }}
           MAVEN_PASSWORD: ${{ secrets.OSS_PASSWORD }}
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        run: mvn --batch-mode -Prelease verify deploy -Dmaven.test.skip=true
+        run: mvn --batch-mode -Prelease deploy -Dmaven.test.skip=true
