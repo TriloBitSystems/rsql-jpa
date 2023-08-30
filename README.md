@@ -204,10 +204,11 @@ Now some real examples of RSQL queries.
 ## Maven
 
 ```xml
+<!-- https://mvnrepository.com/artifact/io.github.trilobitsystems/rsql-jpa -->
 <dependency>
-    <groupId>sk.trilobit</groupId>
+    <groupId>io.github.trilobitsystems</groupId>
     <artifactId>rsql-jpa</artifactId>
-    <version>1.0.0</version>
+    <version>v2023.31.73</version>
 </dependency>
 ```
 
