@@ -59,7 +59,7 @@
         <eclipselink.version>4.0.2</eclipselink.version>
         <junit.version>4.13.2</junit.version>
         <hsqldb.version>2.7.2</hsqldb.version>
-        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.5.0</maven-javadoc-plugin.version>
         <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
         <pomchecker-maven-plugin.version>1.9.0</pomchecker-maven-plugin.version>
         <maven-gpg-plugin.version>3.1.0</maven-gpg-plugin.version>
