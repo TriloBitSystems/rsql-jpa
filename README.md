@@ -1,8 +1,8 @@
 # RSQL for JPA
 
-[![Build Status](https://travis-ci.org/tennaito/rsql-jpa.svg)](https://travis-ci.org/tennaito/rsql-jpa)
+[![Build Status](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml/badge.svg)](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/tennaito/rsql-jpa/badge.svg)](https://coveralls.io/r/tennaito/rsql-jpa)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.tennaito/rsql-jpa/badge.svg?style=flat)](http://mvnrepository.com/artifact/com.github.tennaito/rsql-jpa)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.trilobitsystems/rsql-jpa/badge.svg?style=flat)](http://mvnrepository.com/artifact/io.github.trilobitsystems/rsql-jpa)
 
 __This project is forked from https://github.com/tennaito/rsql-jpa as it has not been updated for quite a while. All credits belongs to [tennaito](https://github.com/tennaito). Provided as-is without any guarantees. All packages from javax.persistence has been updated to newer version of jakarta.persistence.__
 
