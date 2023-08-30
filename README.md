@@ -1,6 +1,6 @@
 # RSQL for JPA
 
-[![Build Status](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml/badge.svg)](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml/badge.svg)
+[![Build Status](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml/badge.svg)](https://github.com/TriloBitSystems/rsql-jpa/actions/workflows/build.yaml)
 [![Coverage Status](https://coveralls.io/repos/tennaito/rsql-jpa/badge.svg)](https://coveralls.io/r/tennaito/rsql-jpa)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.trilobitsystems/rsql-jpa/badge.svg?style=flat)](http://mvnrepository.com/artifact/io.github.trilobitsystems/rsql-jpa)
 
